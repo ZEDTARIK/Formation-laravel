@@ -25,10 +25,4 @@ Route::get('/home', function() {
 
 Route::view('/home', 'home');
 
-Route::get('/post/{id?}', function ($id = 1) {
-    $posts = [
-        1 => ['title' => 'Learn Laravel'],
-        2 => ['title' => 'Learn Angular']
-    ];
-    return view('posts.post', ['data' => $posts[$id]]);
-});
+Route::get('/posts/{id?}', 'PostController@post');
