@@ -13,7 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+        dd(\App\Post::all());
     }
 
     /**
@@ -45,7 +45,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        dd(\App\Post::find($id));
     }
 
     /**
