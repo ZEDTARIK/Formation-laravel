@@ -48,7 +48,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        dd(\App\Post::find($id));
+        $post = Post::find($id);
+        return view('posts.show', ['post' => $post]);
     }
 
     /**

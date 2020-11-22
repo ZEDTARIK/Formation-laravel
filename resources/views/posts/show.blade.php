@@ -1,7 +1,7 @@
 @extends('_layout')
 @section('content')
-    <h2>Posts</h2>
+<h2>Show Post : {{$post->title}}</h2>
         <pre>
-        {{ $data['title'] }}
+        {{ $post->body }}
         </pre>
 @endsection
