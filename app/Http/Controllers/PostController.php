@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         // dd(\App\Post::all());
-        $posts = Post::all();
+        $posts = Post::cursor();
         return view('posts.index', ['posts' => $posts]);
     }
 
