@@ -5,8 +5,10 @@
     <h2>List Posts</h2>
 
     <ul>
-        @foreach($posts as $post)
-    <li> {{$post->id}}  - {{$post->title}}</li>
-        @endforeach
+        @forelse($posts as $post)
+        <li> {{$post->id}}  - {{$post->title}}</li>
+        @empty
+            <p>Not Post</p>
+        @endforelse
     </ul>
 @endsection
