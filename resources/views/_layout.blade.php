@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-md-12">
                     @if ( session()->has('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-dismissible alert-success">
                             {{ session()->get('status') }}
                         </div>
                     @endif
