@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::view('/home', 'home');
-Route::resource('/posts', 'PostController')->only(['index', 'show', 'create', 'store']);
+Route::resource('/posts', 'PostController')->except(['destroy']);
+//->only(['index', 'show', 'create', 'store']);

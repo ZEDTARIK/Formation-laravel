@@ -68,7 +68,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -78,9 +79,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePost $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->slug = Str::slug($request->input('body'), '--');
+        $post->active = false;
+
+        $post->save();
+        $request->session()->flash('status', 'Post Successfully Updated !!');
+        return redirect()->route('posts.index');
     }
 
     /**

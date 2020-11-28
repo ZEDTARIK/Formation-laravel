@@ -7,6 +7,10 @@
     <ul>
         @forelse($posts as $post)
         <li> {{$post->id}}  - {{$post->title}}</li>
+        <li> {{$post->body}} </li>
+        <li> 
+            <a href="{{ route('posts.edit', ['post' => $post->id]) }}">Edit Post</a> 
+        </li>
         @empty
             <p>Not Post</p>
         @endforelse
