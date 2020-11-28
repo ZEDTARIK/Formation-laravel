@@ -11,6 +11,13 @@
         <li> 
             <a href="{{ route('posts.edit', ['post' => $post->id]) }}">Edit Post</a> 
         </li>
+        <li>
+            <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
+                @csrf 
+                @method('DELETE')
+                        <button type="submit">Delete</button>
+            </form>
+        </li>
         @empty
             <p>Not Post</p>
         @endforelse
