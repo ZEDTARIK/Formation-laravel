@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('/css/theme.css') }}">
-    <title>Laravel</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link  href="{{ mix('/css/app.css')}}" rel="stylesheet">
+        <link  href="{{ mix('/css/theme.css')}}" rel="stylesheet">
+        <title>Laravel</title>
 </head>
 <body>
     <div class="container"  style="margin-top: 5px">
@@ -20,10 +21,6 @@
             </div>
           </nav>
           
-          <div class="jumbotron">
-                <h1 class="text-center">Formation Laravel</h1>
-            </div>
-
             <div class="row">
                 <div class="col-md-12">
                     @if ( session()->has('status'))
