@@ -15,6 +15,7 @@
             <div class="container-fluid">
               <div class="navbar-header">
                 <a class="navbar-brand" href="{{ route('posts.index')}}">Posts</a>
+                <a class="navbar-brand" href="{{ route('employees.index')}}">Employees</a>
               </div>
             </div>
           </nav>
