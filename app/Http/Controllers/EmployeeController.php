@@ -65,7 +65,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        return view('employees.edit', ['employee' => $employee]);
     }
 
     /**
@@ -75,9 +76,15 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreEmployee $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee->EmployeeFullName = $request->input('EmployeeFullName');
+        $employee->EmployeeNumber = $request->input('EmployeeNumber');
+
+        $employee->save();
+        $request->session()->flash('status', 'Employee SuccessFully Updated !!');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -86,8 +93,10 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Employee::destroy($id);
+        $request->session()->flash('status', 'Employee SuccessFully Deleted !!');
+        return redirect()->route('employees.index');
     }
 }
