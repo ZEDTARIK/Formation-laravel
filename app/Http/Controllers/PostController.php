@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -37,7 +38,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->slug = Str::slug($post->body, '-');
+        $post->active = true;
+
+        $post->save();
+
+        return redirect()->route('posts.show', [$post->id]);
     }
 
     /**
