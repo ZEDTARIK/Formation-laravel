@@ -24,7 +24,7 @@ class StoreEmployee extends FormRequest
     public function rules()
     {
         return [
-            'EmployeeFullName' => 'bail|required|min:4|mx:100',
+            'EmployeeFullName' => 'bail|required|min:4|max:100',
             'EmployeeNumber' => 'bail|required|min:1|max:50'
         ];
     }

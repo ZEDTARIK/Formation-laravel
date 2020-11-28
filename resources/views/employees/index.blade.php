@@ -2,12 +2,17 @@
 
 @section('content')
 
+    <div class="row" >
+        <div class="col-md-12">
+        <a href="{{ route('employees.create') }}" class="btn btn-primary" role="button">Add New Employee</a>
+        </div>
+    </div>
 
         <div class="row" style="margin-top: 3px">
             <div class="col-md-12">
                 
                 <div class="panel panel-default">
-                    <div class="panel-heading">ListsEmployees</div>
+                    <div class="panel-heading">Lists Employees</div>
                     <div class="panel-body">
                         
                         <table class="table table-hover table-bordered table-sm-responsive">

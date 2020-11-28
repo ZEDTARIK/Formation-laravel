@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Http\Requests\StoreEmployee;
 
 class EmployeeController extends Controller
 {
@@ -28,7 +29,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employees.create');
     }
 
     /**
@@ -37,9 +38,12 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEmployee $request)
     {
-        //
+        $data = $request->only(['EmployeeFullName', 'EmployeeNumber']);
+        Employee::create($data);
+        $request->session()->flash('status', 'Employee SuccessFully Registerd !!');
+        return redirect()->route('employees.index');
     }
 
     /**
