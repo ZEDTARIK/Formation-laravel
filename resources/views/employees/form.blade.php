@@ -1,14 +1,14 @@
 <div class="form-group">
-    <label for="EmployeeFullName" class="col-sm-2 control-label">Full Name</label>
+    <label for="EmployeeFullName" class="col-sm-2">Full Name</label>
     <div class="col-sm-4">
-        <input class="form-control"  placeholder="Employee Full Name" type="text" id="EmployeeFullName" name="EmployeeFullName"  value={{ old('EmployeeFullName', $employee->EmployeeFullName ?? null) }} >
+        <input class="form-control" name="EmployeeFullName" id="EmployeeFullName" placeholder="Employee Full Name" value="{{ old('EmployeeFullName', $employee->EmployeeFullName ?? null) }}">
     </div>
 </div>
 
 <div class="form-group">
-    <label for="EmployeeNumber" class="col-sm-2 control-label">Employee Number</label>
+    <label for="EmployeeNumber" class="col-sm-2">Employee Number</label>
     <div class="col-sm-4">
-        <input class="form-control" placeholder="Your Body" type="text" id="EmployeeNumber"  name="EmployeeNumber"  value={{ old('EmployeeNumber', $employee->EmployeeNumber ?? null)}} >
+        <input class="form-control"  name="EmployeeNumber"  id="EmployeeNumber" placeholder="Your Body"   value="{{ old('EmployeeNumber', $employee->EmployeeNumber ?? null) }}" >
     </div>
 </div>
 
