@@ -45,8 +45,8 @@ class PostController extends Controller
         $post->active = true;
 
         $post->save();
-
-        return redirect()->route('posts.show', [$post->id]);
+        $request->session()->flash('status', 'Post Successfully Created !!');
+        return redirect()->route('posts.index');
     }
 
     /**

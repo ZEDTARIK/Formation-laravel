@@ -7,6 +7,12 @@
     <title>Laravel</title>
 </head>
 <body>
+
+    @if ( session()->has('status'))
+        <h4 style="color:green">
+            {{ session()->get('status') }}
+        </h4>
+    @endif
     
     @yield('content')
 
