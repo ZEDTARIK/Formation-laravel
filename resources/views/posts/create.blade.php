@@ -8,12 +8,12 @@
 
         <div class="form-group">
             <label for="title">Title Post</label>
-            <input class="" type="text" id="title" name="title" placeholder="Title Post" />
+            <input class="" type="text" id="title" name="title" placeholder="Title Post" value={{ old('title')}} >
         </div>
         
         <div class="form-group">
             <label for="body">Body Post</label>
-            <input class="" type="text" id="body" name="body" placeholder="Body Post" />
+            <input class="" type="text" id="body" name="body" placeholder="Body Post" value={{ old('body')}} >
         </div>
 
         <div class="form-group">
