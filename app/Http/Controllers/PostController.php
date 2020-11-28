@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePost;
 use Illuminate\Http\Request;
 use App\Post;
 use illuminate\Support\Str;
@@ -36,12 +37,8 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
-        $validateData = $request->validate([
-            'title' => 'bail|required|min:4|max:100',
-            'body' => 'required'
-        ]);
 
         $post = new Post;
         $post->title = $request->input('title');
