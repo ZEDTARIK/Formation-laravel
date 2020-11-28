@@ -20,6 +20,14 @@
             <button type="submit" class="btn btn-success">Add Post</button>
         </div>
 
+        @if( $errors->any())
+        <ul>
+            @foreach( $errors->all() as $error)
+            <li> {{ $error }} </li>
+            @endforeach
+        </ul>
+        @endif
+
     </form>
 
 @endsection
