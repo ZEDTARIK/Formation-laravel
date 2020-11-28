@@ -40,13 +40,10 @@ class PostController extends Controller
     public function store(StorePost $request)
     {
 
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->slug = Str::slug($post->body, '-');
-        $post->active = true;
-
-        $post->save();
+        $data = $request->only(['title', 'body']);
+        $data['slug'] = Str::slug($data['body'], '-');
+        $data['active'] = true;
+        $post = Post::create($data);
         $request->session()->flash('status', 'Post Successfully Created !!');
         return redirect()->route('posts.index');
     }
