@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePost;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\DB;
 use illuminate\Support\Str;
 
 class PostController extends Controller
@@ -16,7 +17,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        // dd(\App\Post::all());
+        DB::connection()->enableQueryLog();
+        $posts = Post::all(); // Method Leasy
+        $postEggers = Post::with('comments')->get(); // Method Eaggers
+
+        foreach($postEggers as $post) {
+            foreach($post->comments as $comment) {
+                dump($comment);
+            }
+        }
+        dd(DB::getQueryLog());
+
         $posts = Post::cursor();
         return view('posts.index', ['posts' => $posts]);
     }
@@ -98,7 +109,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
         // $post = Post::findOrFail($id);
         // $post->delete();
