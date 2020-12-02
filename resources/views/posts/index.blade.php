@@ -20,6 +20,7 @@
                                 <tr>
                                     <th>Title</th>
                                     <th>body</th>
+                                    <th>N.Comments</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -29,6 +30,9 @@
                                 <tr>
                                 <td>{{ $post->title}}</td>
                                 <td>{{ $post->body}}</td>
+                                <td>
+                                    <span class="badge">{{ $post->comments_count }}</span>
+                                </td>
                                     <td>
                                         <a href="{{ route('posts.edit', ['post' => $post->id])}}" class="btn btn-primary btn-sm" role="button">Edit</a> 
                                     </td>
