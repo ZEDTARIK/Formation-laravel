@@ -1,4 +1,4 @@
-@extends('_layout')
+@extends('layouts.app')
 @section('content')
 <h2>Show Post : {{$post->title}}</h2>
         <pre>
