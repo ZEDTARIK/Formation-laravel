@@ -1,23 +1,27 @@
 <div class="form-group row">
-    <label for="title" class="col-sm-2">Title Post</label>
-    <div class="col-sm-4">
-        <input class="form-control"  placeholder="Your Title"  id="title" name="title"  value="{{ old('title', $post->title ?? null) }}" >
-    </div>
-        @foreach($errors->get('title') as $error)    
-            <div class="col-sm-4">
-                <span style="color:red;" class="help-block">{{ $error }}</span>
-            </div>
+    <label for="title" class="col-md-4 col-form-label text-md-right">Title Post</label>
+
+    <div class="col-md-6">
+        <input id="title" type="title" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $post->title ?? null) }}">
+
+        @foreach($errors->get('title') as $error) 
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $error }}</strong>
+            </span>
         @endforeach
+    </div>
 </div>
 
 <div class="form-group row">
-    <label for="body" class="col-sm-2">Body Post</label>
-    <div class="col-sm-4">
-        <input class="form-control" placeholder="Your Body" id="body"  name="body"  value="{{ old('body', $post->body ?? null)}}" >
+    <label for="body" class="col-md-4 col-form-label text-md-right">Body Post</label>
+
+    <div class="col-md-6">
+        <input id="body" type="title" class="form-control @error('body') is-invalid @enderror" name="body" value="{{ old('title', $post->body ?? null) }}">
+
+        @foreach($errors->get('body') as $error) 
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $error }}</strong>
+            </span>
+        @endforeach
     </div>
-    @foreach($errors->get('body') as $error)    
-    <div class="col-sm-4">
-        <span style="color:red;" class="help-block">{{ $error }}</span>
-    </div>
-@endforeach
 </div>
