@@ -2,18 +2,18 @@
 
 @section('content')
 
-<div class="row" >
-    <div class="col-md-12">
-    <a href="{{ route('posts.create') }}" class="btn btn-primary" role="button">Add New Post</a>
+<div class="row justify-content-center">
+    <div class="col-md-10">
+    <a href="{{ route('posts.create') }}" class="btn btn-outline-dark" role="button">Add New Post</a>
     </div>
 </div>
 
-        <div class="row" style="margin-top: 3px">
-            <div class="col-md-12">
+<div class="row justify-content-center" style="margin-top: 9px;">
+    <div class="col-md-10">
                 
-                <div class="panel panel-default">
-                    <div class="panel-heading">Create New Post</div>
-                    <div class="panel-body">
+                <div class="card">
+                    <div class="card-header">List Posts</div>
+                    <div class="card-body">
                         
                         <table class="table table-hover table-bordered table-sm-responsive">
                             <thead>

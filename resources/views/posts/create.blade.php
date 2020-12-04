@@ -2,27 +2,27 @@
 @section('content')
 
 
-<div class="row">
-    <div class="col-md-12">
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Create New Post</div>
+            <div class="card-body">
 
-        <div class="panel panel-default">
-            <div class="panel-heading">Create New Post</div>
-            <div class="panel-body">
-          
                 <form method="POST" class="form-horizontal" action="{{ route('posts.store') }}">
                     @csrf 
                     @include('posts.form')   
 
-                        <div class="form-group">
-                            <div class="col-sm-6 text-center">
-                                <button type="submit" class="btn btn-success">Add Post</button>
-                            </div>
+                    <div class="form-group row mb-0">
+                        <div class="col-md-8 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
                         </div>
+                    </div>
                 </form>
-                
-                
+
             </div>
-          </div>
+        </div>
     </div>
 </div>
 

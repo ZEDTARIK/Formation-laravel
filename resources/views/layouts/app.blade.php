@@ -73,6 +73,17 @@
         </nav>
 
         <main class="py-4">
+            
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    @if ( session()->has('status'))
+                    <div class="alert alert-dismissible alert-success">
+                        {{ session()->get('status') }}
+                    </div>
+                @endif
+                </div>
+            </div>
+
             @yield('content')
         </main>
     </div>
