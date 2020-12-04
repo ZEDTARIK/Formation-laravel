@@ -21,3 +21,6 @@ Route::resource('/posts', 'PostController');
 //->except(['destroy']);
 //->only(['index', 'show', 'create', 'store']);
 Route::resource('/employees', 'EmployeeController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
