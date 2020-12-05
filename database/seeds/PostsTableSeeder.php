@@ -12,7 +12,8 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $users = App\User::all();
-        factory(App\Post::class, 20)->make()->each(
+        $nbPosts = (int) $this->command->ask("How many of post you want to generate ?", 20);
+        factory(App\Post::class, $nbPosts)->make()->each(
             function($post) use ($users) 
             {
                 $post->user_id = $users->random()->id;

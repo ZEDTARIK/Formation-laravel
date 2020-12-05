@@ -12,7 +12,8 @@ class CommentsTableSeeder extends Seeder
     public function run()
     {
         $posts = App\Post::cursor();
-        factory(App\Comment::class, 50)->make()->each(function($comment) use ($posts) {
+        $nbComments = (int) $this->command->ask("How many of comment you want to generate ?", 50);
+        factory(App\Comment::class, $nbComments)->make()->each(function($comment) use ($posts) {
             $comment->post_id = $posts->random()->id;
             $comment->save();
         });
