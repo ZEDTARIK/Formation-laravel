@@ -13,7 +13,5 @@ $factory->define(Post::class, function (Faker $faker) {
         'slug' => Str::slug($title, '-'),
         'body' => $faker->realText(100),
         'active' => $faker->boolean
-
-
     ];
 });
