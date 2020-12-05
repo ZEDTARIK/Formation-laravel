@@ -16,7 +16,7 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
 
-    /*
+    
     public static function boot() 
     {
         parent::boot();
@@ -25,5 +25,5 @@ class Post extends Model
             $post->comments()->delete();
         });
     }
-    */
+    
 }
