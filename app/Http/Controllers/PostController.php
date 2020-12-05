@@ -22,14 +22,24 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::withCount('comments')->get();
+        $posts = Post::withCount('comments')
+        ->orderBy('updated_at', 'desc')
+        ->get();
         return view('posts.index', ['posts' => $posts, 'tab' => 'list']);
     }
 
     public function archive()
     {
-        $posts = Post::withTrashed()->withCount('comments')->get();
+        
+        $posts = Post::onlyTrashed()->withCount('comments')->get();
         return view('posts.index', ['posts' => $posts, 'tab' => 'archive']);
+    }
+
+    public function restorePost($id)
+    {
+        $post = Post::onlyTrashed()->where('id', $id)->first();
+        $post->restore();
+        return redirect()->back();
     }
 
     /**

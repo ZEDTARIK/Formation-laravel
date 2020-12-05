@@ -46,14 +46,22 @@
                                     <span class="badge">{{ $post->comments_count }}</span>
                                 </td>
                                     <td>
-                                        <a href="{{ route('posts.edit', ['post' => $post->id])}}" class="btn btn-primary btn-sm" role="button">Edit</a> 
+                                        <a  href="{{ route('posts.edit', ['post' => $post->id])}}" class="btn btn-primary btn-sm" role="button">Edit</a> 
                                     </td>
                                     <td>
-                                        <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
-                                            @csrf 
-                                            @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
+                                        @if(!$post->deleted_at)
+                                            <form method="POST" action="{{ route('posts.destroy', ['post' => $post->id]) }}">
+                                                @csrf 
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        @else 
+                                            <form method="POST" action="{{ url('posts/'.$post->id.'/restorePost') }}">
+                                                @csrf 
+                                                @method('PATCH')
+                                                <button type="submit" class="btn btn-success btn-sm">Restore</button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                                 @empty

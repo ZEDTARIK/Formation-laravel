@@ -20,9 +20,13 @@ class Post extends Model
     public static function boot() 
     {
         parent::boot();
-        
+        // Delete Post with Comments
         static::deleting(function(Post $post){
             $post->comments()->delete();
+        });
+        // Restore Post with Comments
+        static::restoring(function(Post $post){
+            $post->comments()->restore();
         });
     }
     

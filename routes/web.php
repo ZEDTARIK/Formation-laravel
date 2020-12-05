@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 Route::view('/home', 'home');
 Route::get('/posts/archive','PostController@archive');
+Route::patch('/posts/{id}/restorePost','PostController@restorePost');
 Route::resource('/posts', 'PostController');
 //->middleware('auth');
 //->except(['destroy']);
