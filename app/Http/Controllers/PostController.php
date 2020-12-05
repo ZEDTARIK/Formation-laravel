@@ -23,7 +23,13 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::withCount('comments')->get();
-        return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => $posts, 'tab' => 'list']);
+    }
+
+    public function archive()
+    {
+        $posts = Post::withTrashed()->withCount('comments')->get();
+        return view('posts.index', ['posts' => $posts, 'tab' => 'archive']);
     }
 
     /**

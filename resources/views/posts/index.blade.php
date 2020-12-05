@@ -10,11 +10,23 @@
 
 <div class="row justify-content-center" style="margin-top: 9px;">
     <div class="col-md-10">
-                
+
                 <div class="card">
-                    <div class="card-header">List Posts</div>
+                    <div class="card-header">Lists</div>
                     <div class="card-body">
+                     
+                        <ul class="nav nav-tabs nav-stacked my-3">
+                            <li class="nav-item">
+                                <a href="/posts" class="nav-link @if($tab =='list') active @endif">Posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/posts/archive" class="nav-link @if($tab =='archive') active @endif">Archive</a>
+                            </li>
+                        </ul>
                         
+                        <span class="label label-center">
+                            {{ $posts->count()  }} Posts 
+                        </span>
                         <table class="table table-hover table-bordered table-sm-responsive">
                             <thead>
                                 <tr>

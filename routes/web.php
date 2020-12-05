@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::view('/home', 'home');
+Route::get('/posts/archive','PostController@archive');
 Route::resource('/posts', 'PostController');
 //->middleware('auth');
 //->except(['destroy']);
