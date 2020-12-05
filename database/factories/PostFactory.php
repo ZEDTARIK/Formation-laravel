@@ -7,11 +7,11 @@ use Faker\Generator as Faker;
 use illuminate\Support\Str;
 
 $factory->define(Post::class, function (Faker $faker) {
-    $title = $faker->realText(10);
+    $body = $faker->realText(50);
     return [
-        'title' => $title,
-        'slug' => Str::slug($title, '-'),
-        'body' => $faker->realText(50),
+        'title' => $faker->realText(15),
+        'body' => $body,
+        'slug' => Str::slug($body, '-'),
         'active' => $faker->boolean
     ];
 });
